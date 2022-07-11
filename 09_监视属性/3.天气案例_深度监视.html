@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气案例_深度监视</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+
+    -->
+    <div id="app">
+     <h2>今天的天气{{name}}啊！{{weather.a}}</h2>
+     <button v-on:click="changeWeather()">点击切换天气</button>
+    </div> 
+     <script type="text/javascript">
+         Vue.config.productionTip = false;//阻止生成生产提示
+         const vm = new Vue({
+             el:'#app',
+             data() {
+                 return {
+                     weather:{
+                        a:1,
+                        b:2
+                     }
+                 }
+             },
+             computed:{
+                 name(){
+                     return this.weather?'很好':'很差'
+                 }
+             },
+             methods: {
+                 changeWeather(){
+                     this.weather.a++
+                 }
+             },
+             watch:{
+                
+                 weather:{
+                     //配置
+                     //immediate:true,//这里的作用是，配置页面加载的时候会调用一次handler，由于没有发生改变oldValue为undefind
+                     //deep开启深度监视，当weather里面的ab的值发生变化的时候就会进行监视，调用handler方法，如果不开启，weather指向的是一个地址，当ab的值发生变化不会影响到warther所以不会进行监视，如果weather里面的属性发生变化才会触发监视
+                     deep:true,
+                     //监视多级结构中所有属性的变化
+                     handler(newValue,oldValue){
+                         console.log(newValue.a,oldValue.a)
+                     }
+                 }
+             }
+         })
+ 
+         //还可以这么写
+         /*vm.$watch('',({
+             handler(newValue,oldValue){
+                         console.log(newValue,oldValue)
+                     }
+         }))*/
+     </script>
+ </body>
+</html>

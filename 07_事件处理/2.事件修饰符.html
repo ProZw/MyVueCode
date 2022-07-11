@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.事件修饰符</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        #div1{
+            background-color: skyblue;
+        }
+        #div2{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        Vue中的事件修饰符：
+        1.prevent：阻止默认操作（常用）
+        2.stop：阻止事件冒泡
+        3.once：事件只触发一次
+        4.capture：使用事件只出发一次
+        5.self：只有event.traget是当前操作的元素才出发事件
+        6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+    -->
+    <div id="div1">
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- prevent：阻止默认操作（常用） ：这里是阻止跳转到新的页面-->
+        <a href="https://www.baidu.com" @click.prevent="showInfo">阻止默认操作</a>
+
+        <!-- stop：阻止事件冒泡(常用) ：这里是阻止跳转到新的页面-->
+        <!-- 因为dev2在dev1里面，所以点击dev2时，也同时点击了dev1，这就是事件冒泡 -->
+        <div id="div2" @click="showInfo">
+         <input type="button" @click.stop="showInfo" value="阻止事件冒泡">
+         <a @click="showInfo"> 点击进入偷渡鱼</a>
+        </div>
+
+        <!-- once：事件只触发一次,也就是说只会调用一次事件 -->
+        <input type="button" @click.once="showInfo" value="事件只触发一次">
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+
+        const vm = new Vue({
+            el:'#div1',
+            data() {
+                return {
+                 name:'尚硅谷！'   
+                }
+            },
+            methods: {
+                showInfo(){
+                    //event.stopPropagation();//通过js的方式阻止事件冒泡
+                    alert('好的！')
+                }
+            },
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/js/vue.js"></script>
+</head>
+<body>
+    <!-- body里面的html标签相当于mvvm中的m（View） -->
+    <div id="app">
+        <a>学校的名称：{{schoolName}}</a>
+        <br/>
+        <a>学校的地址：{{schoolAddress}}</a>
+    </div>
+    <div>
+        <br/><br/>
+        <img src="/image/MVVM.png" height="800px" width="1300px">
+    </div>
+    
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        //Vue实例就是mvvm中的VM（ViewModel，ViewMdoel包含两个内容一个市Dom listeners  Dom监听，另一个是 data bindings 数据绑定）
+        const vm =new Vue({
+            el:'#app',
+            //data相当于mvvm中的m（Model）
+            data(){
+                return{
+                    schoolName:'丰镇市第一中学',
+                    schoolAddress:'内蒙古乌兰察布市丰镇市'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

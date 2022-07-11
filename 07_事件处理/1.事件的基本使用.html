@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.事件的基本使用</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        事件的基本使用：
+        1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名
+        2.事件的回调需要配置再methods中，最终会再vm上：
+        3.methods中配置的函数，不要用箭头函数！否者this就是不是vm（Vue）实例对象了
+        4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm或组件实例对象
+        5.@click=“GetInfo” 和@click=““GetInfo”（$event）” 效果一致，但后者可以传参
+    -->
+    <div id="app">
+        <a>你好，{{name}}!</a>
+        <br/><br/>
+        <button v-on:click="GetInfo">请点击一次</button> <!-- v-on代表再什么什么的时候 ，click是点击事件 -->
+        <br/><br/>
+        <button @click="GetInfo2('那好吧。。。。。。可以简写为@click')">请再点击一次（简写）</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        const msg='那好吧'
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                name:'张三'
+            },
+            methods:{//method 方法的意思
+                GetInfo(){//getInfo在这里相当是是一个函数方法
+                    console.log(event.target);
+                },
+                GetInfo2(a){//getInfo在这里相当是是一个函数方法
+                    console.log(a);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.姓名案例_computed实现</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        姓：<input type="text" v-model="xing"><br>
+        名：<input type="text" v-model:value="ming"><br>
+        <!-- 通过methods调用方法，只要用到就会去调用方法 ,但是计算属性只会调用一次，其他都是用缓存的，如果发生改变将重新加载-->
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        const vm =new Vue({
+            el:'#app',
+            data(){
+                return{
+                    xing:'张',
+                    ming:'三'
+                }
+            },
+            computed: {//计算
+                xingming:{
+                    //完整写法
+                    /*
+                    //get有什么作用，当有人读取xingming的时候，get就会被调用，且返回值就作为xingming的值
+                    //get什么时候会被调用，1.初次读取的时候。2.所以来的数据（属性）发生变化的时候。
+                   get(){
+                    return this.xing+this.ming
+                   },
+                   //set什么时候调用，当xingming被修改的时候
+                   set(value){
+                    console.log(value)
+                    const arr = value.split('-')
+                    this.xing = arr[0]
+                    this.ming = arr[1]
+                    console.log('xing',this.xing)
+                    console.log('ming',this.ming)
+                   }*/
+                   //简写，不需要set的时候,这里只是简写为函数，但是本质还是计算属性，所以掉用的时候还是按照调用属性的方式调用
+                   xingming(){
+                    return this.xing+this.ming
+                   }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

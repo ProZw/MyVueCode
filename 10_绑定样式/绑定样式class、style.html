@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定样式 class、style</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 10px;
+        }
+        .basic{
+        width: 400px;
+        height: 100px;
+        border:1px solid black
+    }
+    .happy{
+        background: pink;
+    }
+    .sad{
+        background: skyblue;
+    }
+    .normal{
+        background: aquamarine;
+    }
+    .atguigu1{
+        font-size: 40px;
+    }
+    .atguigu2{
+        border-radius: 8px;
+    }
+    .atguigu3{
+        background:linear-gradient(to top, yellow 0%, red 100%)
+    }
+
+    </style>
+<body>
+    <div id="app">
+
+        <!--class绑定样式-->
+
+        <div class="basic" v-bind:class="mood" v-on:click="changeBackgroudColor()">test1</div><!--class绑定属性-->
+
+        <div class="basic" :class="arr" >test2</div><!--class绑定数组-->
+
+        <div class="basic" :class="obj" >test3</div><!--class绑定对象-->
+
+        <!--style绑定样式-->
+
+        <div class="basic" :style="{fontSize: 40+'px'}">test4</div><!--style绑定对象，表达式写法-->
+
+        <div class="basic" :style="fsize">test4</div><!--style绑定对象-->
+
+        <div class="basic" :style="{fontSize: 40+'px',borderRadius: 8+'px', background:'linear-gradient(to top, blue 0%, red 100%)'}">test5</div><!--style绑定对象,表达式写法-->
+
+        <div class="basic" :style="styles">test5</div><!--style绑定对象-->
+
+        <div class="basic" :style="[{fontSize: 40+'px'}, {color:'red'}]">test6</div><!--style绑定数组，表达式写法-->
+
+        <div class="basic" :style="[styles1, styles2]">test6</div><!--style绑定数组-->
+
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false;//终止生成生产提示
+        const vm = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    mood:'happy',
+                    arr:['atguigu1','atguigu2','atguigu3'],
+                    obj:{
+                        atguigu1:false,
+                        atguigu2:true,
+                        atguigu3:false
+                    },
+                    fsize:{
+                        fontSize: '40px'
+                    },
+                    styles:{
+                        fontSize: '40px',
+                        borderRadius: '8px',
+                        background:'linear-gradient(to top, blue 0%, red 100%)'
+                    },
+                    styles1:{
+                        fontSize: '40px',
+                    },
+                    styles2:{
+                        color:'red'
+                    }
+                }
+            },
+            methods: {
+                changeBackgroudColor(){
+                    this.mood='sad'
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/js/vue.js"></script>
+</head>
+<body>
+    <!--
+        data与el的2种写法
+        1.el有2中写法:
+        (1)new Vue时配置el属性
+        (2)先创建Vue实例，随后再通过vm.$mount('#app')指定el的值
+        2.data有2种写法
+        (1)对象式
+        (2)函数式
+        如何选择目前那种写法都可以，以后学习到组件时，data必须使用函数式。否则会报错
+        3.一个重要原则：
+        由Vue管理的函数，一定不要写箭头函数（()=>{}），一旦写了箭头函数，this就不再式Vue实例了
+    -->
+
+    <div id="app">
+        <a>你好，{{name}}(数据绑定)</a>
+        <br/>
+        <a>你好，{{name}}(data的两种写法)</a>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        /*el的两种数据绑定写法，这两个看情况自己随意选择即可*/
+        //正常的写法
+        /*new Vue({
+            el:'#app',
+            data:{
+                name:'尚硅谷！'
+            }
+        })*/
+        //数据绑定也可以这么写放在后面
+        var x = new Vue({
+            data:{
+                name:'尚硅谷！'
+            }
+        })
+        x.$mount('#app')
+
+        /*data的两种写法，后面用到组件要用第二种*/
+        //正常的写法:对象式
+        /*new Vue({
+            el:'#app',
+            data:{
+                name2:'尚硅谷！'
+            }
+        })*/
+        //第二种写法：函数式
+        /*new Vue({
+            el:'#app',
+            data:function()
+            {
+                return{ 
+                name2:'尚硅谷！'
+                }
+            }
+        })*/
+        //第二种写法可以简写为
+        new Vue({
+            el:'#app',
+            data(){
+                console.log('@@',this) //此处的this式Vue实例对象
+                return{
+                name2:'尚硅谷！'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

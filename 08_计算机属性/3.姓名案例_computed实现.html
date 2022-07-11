@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.姓名案例_computed实现</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        计算属性：
+            1.定义：要用的属性不存在，要通过已有的属性计算得来
+            2.原理：底层借助了Object.defineproperty方法提供的getter和setter。
+            3.get函数什么时候执行？
+            (1)当初次读取的时候会执行一次
+            (2)当依赖的数据发生改变时候会被再次调用
+            4.优势：与methods相比，内部有缓存机制，不用重复调用，可以复用，效率更高，调试方便
+            5.备注：
+            1.计算属性最终会出现再vm上，直接读取使用即可。
+            2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要硬气计算时以来的数据发生改变。
+    -->
+    <div id="app">
+        姓：<input type="text" v-model="xing"><br>
+        名：<input type="text" v-model:value="ming"><br>
+        <!-- 通过methods调用方法，只要用到就会去调用方法 ,但是计算属性只会调用一次，其他都是用缓存的，如果发生改变将重新加载-->
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+        <h2>你好{{xingming}}</h2><br><br>
+    </div>
+    <script>
+        Vue.config.productionTip = false; //阻止 vue 在启动时生成生产提示
+        const vm =new Vue({
+            el:'#app',
+            data(){
+                return{
+                    xing:'张',
+                    ming:'三'
+                }
+            },
+            computed: {//计算
+                xingming:{
+                    //get有什么作用，当有人读取xingming的时候，get就会被调用，且返回值就作为xingming的值
+                    //get什么时候会被调用，1.初次读取的时候。2.所以来的数据（属性）发生变化的时候。
+                   get(){
+                    return this.xing+this.ming
+                   },
+                   //set什么时候调用，当xingming被修改的时候
+                   set(value){
+                    console.log(value)
+                    const arr = value.split('-')
+                    this.xing = arr[0]
+                    this.ming = arr[1]
+                    console.log('xing',this.xing)
+                    console.log('ming',this.ming)
+                   }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

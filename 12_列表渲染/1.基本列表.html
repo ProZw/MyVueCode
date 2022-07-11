@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本列表</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        v-for指令
+        1.用于展示列表数据
+        2.语法:v-for="(item,index) in xxx" :key="yyy"
+        3.可遍历：数组、，对象、字符串（用的很少）、指定次数（用的很少）
+    -->
+    <div id="app">
+        <h2>遍历数组stuInfo</h2>
+        <ul >
+            <!--<li v-for="p,index in stuInfo" :key="p.id">-->
+            <li v-for="(p,index) in stuInfo" :key="index">
+                {{p}}-{{index}}
+            </li>
+        </ul>
+
+        <h2>遍历对象carInfo</h2>
+        <ul >
+            <!--<li v-for="p,index in stuInfo" :key="index">-->
+            <li v-for="(p,key) in carInfo" :key="key">
+                {{key}}--{{p}}
+            </li>
+        </ul>
+
+        <h2>遍历字符串（用的很少）</h2>
+        <ul>
+            <li v-for="(p,index) in str" :key="index">
+                {{p}}--{{index}}
+            </li>
+        </ul>
+
+        <h2>遍历操作次数（用的很少）</h2>
+        <ul>
+            <li v-for="(p,index) of 20" :key="index">
+                {{p}}--{{index}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false;//终止生成生产提示
+        new Vue({
+            el:'#app',
+            data() {
+                return {
+                    stuInfo:[
+                        {id:1,name:'张三',age:23,address:'内蒙古乌兰察布市'},
+                        {id:1,name:'李四',age:28,address:'陕西西安'},
+                        {id:1,name:'王五',age:30,address:'新疆乌鲁木齐'},
+                        {id:1,name:'赵六',age:32,address:'云南昆明'},
+                    ],
+                    carInfo:{
+                        id:'01',
+                        name:'吉利600',
+                        price:123658
+                    },
+                    str:'sgsfsfs'
+                }
+            },
+        })
+    </script>
+</body>
+</html>
