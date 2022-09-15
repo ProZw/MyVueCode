@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin-top: 10px;
+        }
+        tbody td{
+            border-bottom: 1px rgb(112, 157, 216);
+            color: blue;
+        }
+        .backcolor{
+            background-color: pink;
+        }
+        .tab,.item{
+            margin-left: 30px;
+        }
+        .tab_list{
+            font-size: larger;
+        }
+        /*子选择器（>）*/
+        .tab_list>li{
+            display: inline;/*横向排序*/
+        }
+        .current{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="wx">
+            <li>红安</li>
+            <li>黄石</li>
+            <li>宜昌</li>
+        </ul>
+        <ol class="yx" id="wx">
+            <li>神农架</li>
+            <li>荆门</li>
+            <li>荆州</li>
+        </ol>
+        <dl class="yx">
+            <dt>湖北</dt>
+            <dd>武汉</dd>
+            <dd>仙桃</dd>
+            <dd>恩施</dd>
+        </dl>
+
+        <ul id="wx">
+            <li>红安</li>
+            <li>黄石</li>
+            <li>宜昌</li>
+        </ul>
+        <ol class="yx" id="wx">
+            <li>神农架</li>
+            <li>荆门</li>
+            <li>荆州</li>
+        </ol>
+        <dl class="yx">
+            <dt>湖北</dt>
+            <dd>武汉</dd>
+            <dd>仙桃</dd>
+            <dd>恩施</dd>
+        </dl>
+    </div>
+    <div>
+        <button id="btn">点击一下</button>
+        <button id="btn1">innerText点击切换内容</button>
+        <button id="btn2">innerHtml点击切换内容</button>
+        <p></p>
+        <button id="btn3">点击切换图片更改href</button><br>
+        <img src="../初始Html标签、css语法/image/下级目录.png" alt=""><br>
+        
+        <button id="btn4">点击切换内容</button><br>
+        <input type="text" value="请输入内容">
+    </div>
+    <div id="table1" table-Infomation="tableInfomation">
+        <table border="1" width="500px" height="300px" style="margin: 20px; padding: 0px; font-size: larger;" align="center" cellpadding="10px" cellspacing="3px" padding="0px" margging="0px">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="checkbox"></th>
+                    <th>姓名</th>
+                    <th>成绩</th>
+                    <th>排名</th>
+                    <th>进步率</th>
+                    <th>入学率</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="check"></td>
+                    <td>张三</td>
+                    <td>659</td>
+                    <td>25</td>
+                    <td>0.1</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check"></td>
+                    <td>李四</td>
+                    <td>702</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check"></td>
+                    <td>王五</td>
+                    <td>456</td>
+                    <td>202</td>
+                    <td>20</td>
+                    <td>1.36</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check"></td>
+                    <td>赵六</td>
+                    <td>489</td>
+                    <td>150</td>
+                    <td>30</td>
+                    <td>2.56</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="check"></td>
+                    <td>田七</td>
+                    <td>531</td>
+                    <td>102</td>
+                    <td>45</td>
+                    <td>2.8</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab">
+        <div>
+            <ul class="tab_list">
+                <li class="current" index="0">商品介绍</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>收集社区</li>
+            </ul>
+        </div>
+        <div class = "tab_con">
+            <div class="item">
+                商品介绍模块
+            </div>
+            <div class="item">
+                售后保障模块
+            </div>
+            <div class="item">
+                商品评价模块
+            </div>
+            <div class="item">
+                收集社区模块
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        /*
+        //循环
+        var list =['测试1','测试2','测试3','测试4'];
+
+        //for循环
+        console.log('for循环');
+        for(var i =0; i<list.length; i++){
+            console.log(list[i]);
+        }
+        //while循环
+        console.log('while循环');
+        var a =0
+        while(a>list.length){
+            console.log(list[i]);
+            i++;
+        }
+        //for in 循环
+        console.log('for in 循环');
+        for(var a in list){
+            console.log(a);
+        }
+
+        //do... while 循环
+        console.log('do... while 循环');
+        {
+            console.log(list[a]);
+            a++;
+        }
+        while(a>list.length);*/
+
+        //数组
+        /*冒泡排序*/
+        /*var arr = [6, 1, 4, 8, 2, 5, 7, 3];
+        for (var i = 0; i < arr.length - 1; i++) { // 外层循环定义趟数
+            for (var j = 0; j < arr.length - 1 - i; j++) { // 内层循环定义每一趟的交换次数
+                if (arr[j] < arr[j + 1]) { // 内部交换2个变量的值 前一个和后面一个数组元素相比较
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);*/
+
+        //数组
+        /*var arr=[1,2,'张三'];
+        var arr2 = new Array();
+        arr2[0]=1;
+        arr2[1]=2;
+        arr2[3]=3;*/
+
+        //为数组添加/删除元素
+        /*var arr3 = [4,2];
+        arr3.push(2,3);//末尾添加一个或多个元素
+        arr3.unshift(1,2);//开头添加一个或多个元素
+        arr3.pop();//删除数组最后一个元素
+        arr3.shift();//删除数组第一个元素
+        console.log(arr3);*/
+
+        //颠倒数组顺序
+        /*var arr4 = [1,2,4,3,5,6];
+        arr4.reverse(arr4);
+        console.log(arr4);*/
+
+        //数组排序
+        /*var arr5 = [4,2,6,8,7,9,2,1,5,4];
+        arr5.sort(function(a,b){
+            return a-b;
+        });
+        console.log(arr5);*/
+
+        //数组索引用法indexOf/lastindexOf,如果存在返回索引值，不存在返回-1
+        /*var arr6 =[4,5,6,7,8,9];
+        var a = arr6.indexOf(6);
+        var b = arr6.indexOf(10);
+        console.log(a);
+        console.log(b);*/
+
+        //数组转换为字符串
+        /*var arr7 = [1,2,3,'sdsd',4,5];
+        console.log(arr7.toString());*/
+
+        //返回/获取指定位置的字符
+        /*var string1 = 'asdfghjkl';
+        console.log(string1.charAt(1));
+        console.log(string1[1]);*/
+        
+        //对象
+       /* var list={a:1,b:2,c:3,d:'张三'};
+        list.e='张三';
+        console.log(list);
+
+        var list1 = new Object();
+        list1.a=1;
+        list1.b=2;
+        list1.c=3;
+        list1.d='张三';
+        list1.e=function(){
+            return 1;
+        }
+        console.log(list1);
+
+        var list2={
+            a:1,
+            b:2,
+            c:3,
+            d:function(){
+                return '张三'+arguments[0];
+            }
+        }
+        console.log(list2.d(',你好！')+'-'+list2.a+'-'+list2['b']);*/
+
+        //使用构造函数创建对象
+        /*function list3(a,b,c){
+            this.a=a;
+            this.b = b;
+            this.c = c;
+            this.d = function(){
+                return arguments[0];
+            }
+        }
+        var list4 = new list3(1,2,3);
+        console.log(list4);
+        console.log(list4.d('张三'));*/
+
+        
+    </script>
+    <script>
+        //选择器
+        var wx = document.getElementById('wx');//返回对拥有指定 ID 的    第一个   对象的引用
+        //console.log(wx);
+        var yx = document.getElementsByClassName('yx');//返回文档中   所有   指定类名的元素集合，作为 NodeList 对象。
+        //console.log(yx);
+        var tag = document.getElementsByTagName('ol');//返回带有指定标签名的对象的集合
+        //console.log(tag);
+        var selector1 = document.querySelector('li');//返回匹配指定选择器的第一个元素。如果你要返回所有匹配元素，请使用 querySelectorAll() 方法替代
+        var selector2 = document.querySelector('.yx');
+        var selector3 = document.querySelector('#wx');
+        /*console.log(selector1);
+        console.log(selector2);
+        console.log(selector3);*/
+        var selector5 = document.querySelectorAll('li');//返回匹配指定选择器的所有匹配元素
+        var selector6 = document.querySelectorAll('.yx');
+        var selector7 = document.querySelectorAll('#wx');
+        /*console.log(selector5);
+        console.log(selector6);
+        console.log(selector7);*/
+
+        //获取body标签
+        var bodyEle = document.body;
+        //console.log(bodyEle);
+
+        //获取html标签
+        var htmlEle = document.documentElement;
+        //console.log(htmlEle);
+
+        //事件
+        //事件三要素 事件源  事件类型  事件处理程序
+        var btn=document.getElementById('btn');
+        btn.onclick = function(){
+            alert('唐伯虎点秋香');
+        }
+
+        //innerText  不 可以识别/获取到html标签   获取元素的内容时候 会去除空格和换行   非标准
+        var p = document.querySelector('p');
+        var btn1=document.getElementById('btn1');//1.获取元素
+        btn1.onclick = function(){//2.注册事件
+            if(p.innerHTML=="")
+            p.innerText='唐伯虎点秋香';
+            else
+            p.innerText='';
+        }
+
+        //innerHtml可以识别/获取到html标签  获取元素的内容时候 不会去除空格和换行   W3C标准S
+        var btn2 = document.getElementById('btn2');//1.获取元素
+        btn2.onclick = function(){//2.注册事件
+            if(p.innerHTML=="")
+            {
+                p.innerHTML='<strong>唐伯虎点秋香</strong>';
+            console.log(p.innerHTML)
+            }
+            else
+            p.innerHTML='';
+        }
+
+        //更改元素属性
+        var btn3=document.getElementById('btn3');//1.获取元素
+        var img = document.querySelector('img');
+        btn3.onclick = function(){
+            if(img.src.indexOf('%E5%88%9D%E5%A7%8BHtml%E6%A0%87%E7%AD%BE%E3%80%81css%E8%AF%AD%E6%B3%95/image/%E4%B8%8B%E7%BA%A7%E7%9B%AE%E5%BD%95')!=-1)
+            img.src='../初始Html标签、css语法/同级目录.png';
+            else
+            img.src='../初始Html标签、css语法/image/下级目录.png';
+        }
+
+        //更改表单元素属性   和其他的控件属性修改不一样不能用innerText/innerHtml
+        var btn4 = document.getElementById('btn4');//1.获取元素
+        var inputText = document.querySelector('input');
+        btn4.onclick = function(){
+            inputText.value='你好啊，欢迎调整表单元素属性！';
+            //inputText.type='password';
+            //this.disabled=true;//this指事件的调用者
+        }
+        
+
+        //更改样式属性操作 element.style(行内样式操作) element.className(类名样式操作)
+        var div = document.querySelector('div');
+        div.onclick = function(){
+            console.log(this.style.backgroundColor);
+            if(this.style.backgroundColor=='white')
+            this.style.backgroundColor='yellow';
+            else if(this.style.backgroundColor=='yellow')
+            this.style.backgroundColor='#8bc34a';
+            else
+            this.style.backgroundColor='white';
+
+            this.className='yellowText';//加一个类，在上面的样式表里面设置这个类的样式，就可以实现批量修改了
+        }
+
+        //实现表格隔行变色
+        /*var listTr = document.querySelector('tbody').querySelectorAll('tr');
+        for(var i =0;i<listTr.length;i++){
+            //鼠标经过事件 onmouseover
+            listTr[i].onmouseover = function(){
+                //this.style.backgroundColor='pink';
+                this.className='backcolor';
+            };
+            //鼠标离开事件 onmouseout
+            listTr[i].onmouseout = function(){
+                //this.style.backgroundColor='white';
+                this.className='';
+            };
+        }*/
+
+        //选择框  全选
+        /*var checkAll = document.getElementById('checkbox');
+        var checks = document.getElementsByClassName('check');
+        console.log(checkAll);
+    
+        checkAll.onclick = function(){
+            for(var i =0;i < checks.length;i++)
+            {
+                
+                if(checks[i].checked==true)
+                checks[i].checked = false;
+                else
+                checks[i].checked = true;
+            }
+        }*/
+        
+        //获取元素属性
+        var tableInfoId = document.getElementById('table1');
+        //console.log(tableInfoId.id)
+        //获取自定义属性  getAttribute
+        //console.log(tableInfoId.getAttribute('table-Infomation'));
+        //设置自定义属性
+        tableInfoId.setAttribute('table-Infomation','tables');
+        //console.log(tableInfoId);
+        //删除自定义属性
+        tableInfoId.removeAttribute('table-Infomation');
+        //console.log(tableInfoId);
+
+        //table 切换制作
+        var tab_list = document.querySelector('.tab_list');
+        var lis = tab_list.querySelectorAll('li');
+        var items = document.querySelectorAll('.item');
+        for(var i = 0;i<lis.length;i++){
+            lis[i].setAttribute('index',i);
+            lis[i].onclick = function(){
+                //设置颜色
+                for(var i = 0;i<lis.length;i++){
+                    lis[i].className='';
+                }
+                this.className='current';
+                //设置内容
+                var index = this.Attribute('index');
+                for(var i = 0;i<index.length;i++){
+                    items[i].style.display='none';
+                }
+                items[index].style.display='block';
+            }
+        }
+        
+    </script>
+</body>
+</html>

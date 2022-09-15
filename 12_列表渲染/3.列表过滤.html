@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    <input type="text" placeholder="请输入要查询的姓名" v-model="cname">
+    <ul>
+        <!--这里v-for的时候如果不写key=“xxx”key默认取得市idex会有问题，最后取不会重复的id-->
+        <li v-for="(p,index) in CstuInfo" :key="p.id">
+            {{p.id}}-{{p.name}}--{{p.age}}--{{p.address}}
+        </li>
+    </ul>
+
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false;//阻止生成生产提示
+
+        //使用监听属性实现列表过滤
+
+        /*const vm = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    cname:'',
+                    stuInfos:[
+                        {id:1,name:'张三',age:23,address:'内蒙古乌兰察布市'},
+                        {id:2,name:'李四',age:28,address:'陕西西安'},
+                        {id:3,name:'王五',age:30,address:'新疆乌鲁木齐'},
+                        {id:4,name:'赵六',age:32,address:'云南昆明'},
+                    ],
+                    fstuInfos:[]
+                }
+            },
+            watch:{
+                cname:{
+                    immediate:true,//该进入就会调用一次
+                    handler(newVal){
+                        console.log(newVal)
+                        this.fstuInfos = this.stuInfos.filter((p)=>{
+                            return p.name.indexOf(newVal)!==-1
+                        })
+                        
+                        
+                    }
+                }
+            }
+        })*/
+
+        //使用计算属性实现列表过滤
+
+        const vm = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    cname:'',
+                    stuInfos:[
+                        {id:1,name:'张三',age:23,address:'内蒙古乌兰察布市'},
+                        {id:2,name:'李四',age:28,address:'陕西西安'},
+                        {id:3,name:'王五',age:30,address:'新疆乌鲁木齐'},
+                        {id:4,name:'赵六',age:32,address:'云南昆明'},
+                    ]
+                }
+            },
+            computed:{
+                CstuInfo(){
+                    return this.stuInfos.filter((p)=>{
+                        return p.name.indexOf(this.cname)!==-1
+                    })
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

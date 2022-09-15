@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            color: red;
+        }
+    </style>
+</head>
+<br>
+    <h1>一级标题：h1</h1>
+    <h2>二级标题：h2</h2>
+    <h3>三级标题：h3</h3>
+    <h4>四级标题：h4</h4>
+    <h5>五级标题：h5</h5>
+    <h6>六级标题：h6</h6>
+
+    <p>段落标签:p</p>
+
+    换行标签:br</br></br>
+
+    <strong>加粗：strong，<a>推荐，语义更强烈</a></strong></br></br>
+    <b>加粗：b</b></br></br>
+
+    <em>倾斜：em，<a>推荐，语义更强烈</a></em></br></br>
+    <i>倾斜：i</i></br></br>
+
+    <del>删除线：del，<a>推荐，语义更强烈</a></del></br></br>
+    <s>删除线：s</s></br></br>
+
+    <ins>下划线：ins，<a>推荐，语义更强烈</a></ins></br></br>
+    <u>下划线：u</u></br></br>
+    
+    <!--用来布局的标签 div span-->
+    <div id="maodian">我是div我是一个大盒子，我独占一行，一行只能放一个div</div></br>
+
+    <span>我是span</span><span>我是一个小盒子</span><span>一行上可以有多个span</span></br></br>
+
+    <!--图片-->
+    <h3>读取同一级路径的图片：</h3>
+    <img src="同级目录.png" title="title提示文本，鼠标放上来显示文字" width="40px" height="40px" border="3"/></br></br>
+
+    <h3>读取下一级路径的图片：</h3>
+    <img src="image/下级目录.png" title="title提示文本，鼠标放上来显示文字" width="40px" height="40px" border="3"/></br></br>
+
+    <h3>读取上一级路径的图片：</h3>
+    <img src="../image/甜妹约等于我.png" title="title提示文本，鼠标放上来显示文字" width="40px" height="40px" border="3"/></br></br>
+
+    <h3>相对路径：</h3>
+    <img src="../image/相对路径.png" title="title提示文本，鼠标放上来显示文字" border="1"/></br></br>
+
+    <h3>绝对路径：https://t10.baidu.com/it/u=4252015200</h3>
+    <img src="https://t10.baidu.com/it/u=4252015200,180197387&fm=30&app=106&f=JPEG?w=312&h=208&s=AD66C215564369411E8A1ED10300F0AE"/></br></br>
+
+    <img src="../image/不存在.png"/ alt="不存在图片时候用alt显示,还可以设置图片的宽高，边框粗细"></br></br>
+
+    <a href="01_html标签案例.html">超链接点击跳转,target属性用于指定新的页面的打开方式，默认_self，_blank表示用一个新的页面打开，这里用的是_self</a></br></br>
+
+    <a href="01_html标签案例.html" target="_blank">超链接点击跳转,target属性用于指定新的页面的打开方式，默认_self，_blank表示用一个新的页面打开，这里用的是_blank</a></br></br>
+
+    <a href="../file/code.rar" target="_blank">点击超链接下载文件</a></br></br>
+
+    <a href="#maodian" target="_blank">锚点链接，找到目标位置标签，设置一个ID=xxx，href="#xxx",这样就可以挑选到这个指定的位置了</a></br></br>
+
+    <h3>特俗字符</h3>
+
+    <img src="../image/特俗字符.png" />
+
+    <h3>表格，<a>thead：</a>代表表的头部区域；<a>tbody：</a>代表表格的主体区域；<a>th(表头)</a>：table head；<a>tr(表的行)</a>：table row；<a>td(表的单元格)</a>：table data；<a>cellpadding</a>：内容与单元格之间的距离;<a>cellspacing：</a>各单元格之间的间距</h3>
+
+    <!--tr代表行，td代表行里面的单元格-->
+    <table border="1" width="500px" height="300px" style="margin: 20px; padding: 5px; font-size: larger;" align="center" cellpadding="10px" cellspacing="3px"> 
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>地址</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>张三</td>
+            <td rowspan="3">男</td>
+            <td>45</td>
+            <td>大理</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+
+            <td>20</td>
+            <td>昆明</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>20</td>
+            <td>西安</td>
+        </tr>
+        <tr>
+            <td>赵六</td>
+            <td>女</td>
+            <td colspan="2">20,石家庄</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>无序列表</h3>
+    <ul>
+        <li><a>list-style-type属性：</a></li>
+        <li style="list-style-type:none;">none：不使用项目符号。</li>
+        <li style="list-style-type:disc;">disc：实心圆</li>
+        <li style="list-style-type:circle;">circle：空心圆</li>
+        <li style="list-style-type:square;">square：实心方块</li>
+        <li style="list-style-type:demical;">demical：阿拉伯数字</li>
+        <li style="list-style-type:lower-alpha;">lower-alpha：小写英文字母</li>
+        <li style="list-style-type:upper-alpha;">upper-alpha：大写英文字母</li>
+        <li style="list-style-type:lower-roman;">lower-roman：小写罗马数字</li>
+        <li style="list-style-type:upper-roman;">upper-roman：大写罗马数字</li>
+        <li><a>list-style-image属性：</a></li>
+        <li style="list-style-image:url(../image/甜妹约等于我.png);"></li>
+    </ul>
+
+    <h3>有序列表</h3>
+    <ol>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+    </ol>
+
+    <h3>自定义列表</h3>
+    <dl>
+        <dt style="margin-left: 40px;">解释</dt>
+        <dd style="padding-bottom: 5px;">dl：define list</dd>
+        <dd style="padding-bottom: 5px;">dt：define title</dd>
+        <dd style="padding-bottom: 5px;">dd: define data</dd>
+    </dl>
+
+    <h3>表单域</h3>
+    <image src="../image/表单域.png" style="width: 600px; height: 342px;"/>
+
+    <h2>表单标签</h2>
+    <h3>表单控件（表单元素）</h3>
+    <h4><a>1.Input输入表单元素</a></h4>
+    <form action="02_html标签案例.html" method="get" name="inputTest">
+        文本框：<input type="text" maxlength="20" placeholder="请输入文本" name="textbox"><br><br>
+        密码框：<input type="password" maxlength="20" value="54881515" name="password"><br><br>
+        性别（单选按钮，可以实现多选）：男 <input type="radio" name="sex" value="男" checked="true"> 女 <input type="radio" name="sex" value="女"><br><br>
+        爱好（复选框，可以实现多选）：睡觉 <input type="checkbox" name="hobby" value="睡觉" checked="true"> 吃饭 <input type="checkbox" name="hobby" value="吃饭"> 打豆豆 <input type="checkbox" name="hobby" value="打豆豆"><br><br>
+        <input type="submit" value="提交按钮submit，点击会提交表单的数据，点击会提交表单的数据">&nbsp;&nbsp;
+        <input type="reset" value="重置按钮reset，点击会重置表单">&nbsp;&nbsp;
+        <input type="button" value="普通按钮button，一般配合js使用">&nbsp;&nbsp;
+        <input type="file" value="文件域按钮，用来上传文件" name="file">
+        <br><br>
+        <image src="../image/input表单元素.png" border="1" /><br><br>
+        <image src="../image/input表单元素属性.png" border="1" /><br><br>
+
+        <h3>还有一个常用的搭配表单元素使用的lable属性，标签用于绑定一个表单元素，当点击lable标签内的文本时，浏览器就会自动讲焦点(光标)转到或者选择对应的表单元素上，用来增加用户体验</h3>
+        <label for="text">文本框：</label><input type="text" maxlength="20" placeholder="请输入文本" name="textboxs" id="text"><br><br>
+        <label for="radios">性别：</label><input type="radio" id="radios" name="checked" value="性别"> 
+    
+
+    <h4><a>2.select下来表单元素</a></h4>
+     籍贯：
+     <select name="select">
+        <option>option:选项</option><!-- option:选项 -->
+        <option>select里面至少包含一对选项</option>
+        <option selected="true">selected="true"时，默认选中"</option>
+        <option>海王星</option>
+        <option>金星</option>
+     </select>
+
+    <h4><a>3.textarea文本域表单元素</a></h4>
+     文本域：
+     <textarea cols="50" rows="8">文本域是textarea,cols用来设置显示每行多少个汉字，rows用来设置显示多少行，不需要记，不常用
+     </textarea>
+    </form>
+    <br><br>
+    <a href="https://www.bilibili.com/video/BV14J4114768?p=55&spm_id_from=pageDriver&vd_source=0e40fbeba676f126ca1b3fce4921ca6c" target="_blank">
+        <h2>黑马程序员pink老师前端入门教程，零基础必看的h5(html5)+css3+移动端前端视频教程</h2>   
+    </a>
+    <br><br>
+</body>
+</html>

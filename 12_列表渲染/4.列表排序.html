@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入查询条件" v-model="tname">
+        <input type="button" value="默认排序" v-on:click="sortType=0">
+        <input type="button" value="正序排序" v-on:click="sortType=1">
+        <input type="button" value="倒序排序" v-on:click="sortType=2">
+        <ul>
+            <li v-for="(p,index) in stu" :key="p.id">
+                {{p.id}}--{{p.stuName}}--{{p.age}}--{{p.address}}
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false; //阻止生成生产提示
+        const vm = new Vue({
+            el:'#app',
+            data() {
+                return {
+                    tname:'',
+                    stuInfos:[
+                        {id:1,stuName:'张三',age:20,address:'湖北恩施'},
+                        {id:2,stuName:'李四',age:23,address:'湖北天门'},
+                        {id:3,stuName:'王五',age:26,address:'湖北荆门'},
+                        {id:4,stuName:'赵六',age:78,address:'湖北武汉'},
+                        {id:5,stuName:'张xin',age:27,address:'湖北恩施'},
+                        {id:6,stuName:'张鱼类',age:25,address:'湖北恩施'},
+                        {id:7,stuName:'张率',age:26,address:'湖北恩施'},
+                    ],
+                    fStuInfos:[],
+                    sortType:0
+                }
+            },
+            computed:{
+                stu(){
+                    const arr = this.stuInfos.filter((p)=>{
+                       return p.stuName.indexOf(this.tname)!==-1
+                    })
+                    //判断是否需要排序
+                    if(this.sortType)
+                    {
+                        
+                        //sort方法有两个参数，a-b
+                        arr.sort((a,b)=>{
+                            return this.sortType==1? a.age-b.age:b.age-a.age
+                        })
+                    }
+                    return arr
+                }
+            }
+        })
+    </script>
+</body>
+</html>

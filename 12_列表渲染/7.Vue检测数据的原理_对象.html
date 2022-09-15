@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue检测数据的原理_对象</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        *{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false;//阻止生成生产提示
+
+        const data={
+            name:'卢克',
+            address:'夏威夷'
+        }
+        
+        const obs = new ObServer(data)
+
+        let vm= {}
+
+        vm._data=obs
+        
+        function ObServer(obj){
+            const keys = Object.keys(data)
+            console.log(obj)
+            keys.forEach((k)=>{
+                Object.defineProperty(this,k,{
+                    get:function reactiveGetter(){
+                        return obj[K]
+                    },
+                    set:function reactiveSetter(newVal){
+                        obj[K]=val
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+</html>

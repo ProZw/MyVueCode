@@ -12,7 +12,7 @@
         v-for指令
         1.用于展示列表数据
         2.语法:v-for="(item,index) in xxx" :key="yyy"
-        3.可遍历：数组、，对象、字符串（用的很少）、指定次数（用的很少）
+        3.可遍历：数组、对象、字符串（用的很少）、指定次数（用的很少）
     -->
     <div id="app">
         <h2>遍历数组stuInfo</h2>
@@ -23,7 +23,7 @@
             </li>
         </ul>
 
-        <h2>遍历对象carInfo</h2>
+        <h2>遍历对象carInfo</h2> 
         <ul >
             <!--<li v-for="p,index in stuInfo" :key="index">-->
             <li v-for="(p,key) in carInfo" :key="key">
